@@ -13,6 +13,10 @@ namespace CommandLineParser
 
         protected object BaseDefaultValue { get { return base.DefaultValue; } set { base.DefaultValue = value; } }
 
+        /// <summary>
+        /// Gets if the parameter is of type Nullable<T>. This is not the same as a reference that can
+        /// be set to null. For instance, a string parameter would not be IsNullable on this member.
+        /// </summary>
         public bool IsNullable { get; private set; }
 
         public MethodParameter(ParameterInfo parameterInfo)
@@ -80,6 +84,7 @@ namespace CommandLineParser
             Optional = parameterInfo.HasDefaultValue;
             Position = parameterInfo.Position;
             IsArray = parameterInfo.ParameterType.IsArray;
+            DefaultValue = parameterInfo.DefaultValue;
         }
 
         public bool SupportsArgument(IEnumerable<string> parameters)

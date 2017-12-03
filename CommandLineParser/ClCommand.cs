@@ -18,10 +18,9 @@ namespace CommandLineParser
         {
             var pargs = ParseArgs(args);
             var allowedMethods = new List<Method>();
-            foreach (var methodInfo in type.GetMethods().Where(m => m.IsStatic))
+            foreach (var methodInfo in type.GetRuntimeMethods().Where(m => m.IsStatic))
             {
-                Method method;
-                if (Method.TryGetMethod(methodInfo, out method))
+                if (Method.TryGetMethod(methodInfo, out Method method))
                 {
                     allowedMethods.Add(method);
                 }
@@ -77,7 +76,7 @@ namespace CommandLineParser
             return hasAttr && allowedType;
         }
 
-        static ParsedArgs ParseArgs(string[] args)
+        public static ParsedArgs ParseArgs(string[] args)
         {
             var parsedArgs = new ParsedArgs();
 
@@ -104,8 +103,7 @@ namespace CommandLineParser
                 }
                 else
                 {
-                    List<string> switchArgs;
-                    if (!parsedArgs.TryGetValue(currentSwitch, out switchArgs))
+                    if (!parsedArgs.TryGetValue(currentSwitch, out List<string> switchArgs))
                     {
                         switchArgs = new List<string>();
                         parsedArgs.Add(currentSwitch, switchArgs);
