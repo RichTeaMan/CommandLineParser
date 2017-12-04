@@ -28,7 +28,9 @@ namespace CommandLineParser.Tests
         public void ParseArgsNoParametersTest()
         {
             string verb = "test";
-            var parsedArgs = ClCommandAttribute.ParseArgs(new[] { verb });
+
+            var invoker = new CommandLineParserInvoker();
+            var parsedArgs = invoker.ParseArgs(new[] { verb });
 
             Assert.AreEqual(verb, parsedArgs.Verb);
             Assert.AreEqual(0, parsedArgs.Count);
@@ -38,7 +40,9 @@ namespace CommandLineParser.Tests
         public void ParseArgsSingleParameterTest()
         {
             string verb = "test";
-            var parsedArgs = ClCommandAttribute.ParseArgs(new[] { verb, "-t", "99" });
+
+            var invoker = new CommandLineParserInvoker();
+            var parsedArgs = invoker.ParseArgs(new[] { verb, "-t", "99" });
 
             Assert.AreEqual(verb, parsedArgs.Verb);
             Assert.AreEqual(1, parsedArgs.Count);
