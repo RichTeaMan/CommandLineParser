@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <AssemblyName>RichTea.CommandLineParser.Tests</AssemblyName>
+
+    <RootNamespace>RichTea.CommandLineParser.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

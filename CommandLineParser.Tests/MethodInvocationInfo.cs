@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommandLineParser.Tests
+namespace RichTea.CommandLineParser.Tests
 {
     public class MethodInvocationInfo
     {

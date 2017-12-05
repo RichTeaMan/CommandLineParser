@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace CommandLineParser
+namespace RichTea.CommandLineParser
 {
     public class ClArgsAttribute : Attribute
     {

@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandLineParser
+namespace RichTea.CommandLineParser
 {
     public class IntMethodParameter : MethodParameter<int>
     {

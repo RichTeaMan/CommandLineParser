@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace CommandLineParser.Tests
+namespace RichTea.CommandLineParser.Tests
 {
     [TestFixture]
     public class ClCommandTest

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace CommandLineParser
+namespace RichTea.CommandLineParser
 {
     public class ClCommandAttribute : Attribute
     {
