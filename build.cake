@@ -1,5 +1,5 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
-#tool "nuget:?package=vswhere"
+#addin "Cake.Incubator"
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -27,29 +27,17 @@ Task("Clean")
 Task("Restore-NuGet-Packages")
     .Does(() =>
 {
-    NuGetRestore("./CommandLineParser.sln");
+    DotNetCoreRestore("./CommandLineParser.sln");
 });
 
 Task("Build")
     .IsDependentOn("Restore-NuGet-Packages")
     .Does(() =>
 {
-    if(IsRunningOnWindows())
-    {
-
-        DirectoryPath vsLatest  = VSWhereLatest();
-        FilePath msBuildPathX64 = (vsLatest==null)
-                                ? null
-                                : vsLatest.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
-
-        Information($"MS Build Path: {msBuildPathX64}");
-        MSBuild("CommandLineParser.sln", new MSBuildSettings {
-        Verbosity = Verbosity.Minimal,
-        Configuration = configuration,
-        PlatformTarget = PlatformTarget.MSIL,
-        ToolPath = msBuildPathX64
-        });
-    }
+    DotNetCoreBuild("./CommandLineParser.sln", new DotNetCoreBuildSettings {
+        Verbosity = DotNetCoreVerbosity.Minimal,
+        Configuration = configuration
+    });
 });
 
 Task("Test")
