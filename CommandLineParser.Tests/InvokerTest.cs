@@ -1,16 +1,16 @@
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 using System.Reflection;
 
 namespace RichTea.CommandLineParser.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class InvokerTest
     {
         private static MethodInvocationInfo methodInvocationInfo;
 
-        [SetUp]
+        [TestInitialize]
         public void Setup()
         {
             methodInvocationInfo = null;
@@ -47,7 +47,7 @@ namespace RichTea.CommandLineParser.Tests
         )
         { }
 
-        [Test]
+        [TestMethod]
         public void BasicInvocationNoParamsTest()
         {
             string[] args = { "test-method-no-param" };
@@ -64,7 +64,7 @@ namespace RichTea.CommandLineParser.Tests
             Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
         }
 
-        [Test]
+        [TestMethod]
         public void BasicInvocationParamsTest()
         {
             int a = 909;

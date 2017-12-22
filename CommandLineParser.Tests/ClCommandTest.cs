@@ -1,11 +1,10 @@
-using NUnit.Framework;
-using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Reflection;
 
 namespace RichTea.CommandLineParser.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class ClCommandTest
     {
         [ClCommand("test-method")]
@@ -24,7 +23,7 @@ namespace RichTea.CommandLineParser.Tests
         )
         { }
 
-        [Test]
+        [TestMethod]
         public void ParseArgsNoParametersTest()
         {
             string verb = "test";
@@ -36,7 +35,7 @@ namespace RichTea.CommandLineParser.Tests
             Assert.AreEqual(0, parsedArgs.Count);
         }
 
-        [Test]
+        [TestMethod]
         public void ParseArgsSingleParameterTest()
         {
             string verb = "test";
@@ -49,7 +48,7 @@ namespace RichTea.CommandLineParser.Tests
             Assert.AreEqual("99", parsedArgs["t"].Single());
         }
 
-        [Test]
+        [TestMethod]
         public void IntDefaultParameterTest()
         {
             var methodInfo = GetType().GetRuntimeMethods().Single(m => m.IsStatic && m.Name == "TestMethod");
@@ -64,7 +63,7 @@ namespace RichTea.CommandLineParser.Tests
             Assert.AreEqual(20, intMethodParameter.DefaultValue);
         }
 
-        [Test]
+        [TestMethod]
         public void NullableIntDefaultParameterTest()
         {
             var methodInfo = GetType().GetRuntimeMethods().Single(m => m.IsStatic && m.Name == "NullableParamTestMethod");
@@ -79,7 +78,7 @@ namespace RichTea.CommandLineParser.Tests
             Assert.AreEqual(20, intMethodParameter.DefaultValue);
         }
 
-        [Test]
+        [TestMethod]
         public void StringDefaultParameterTest()
         {
             var methodInfo = GetType().GetRuntimeMethods().Single(m => m.IsStatic && m.Name == "TestMethod");
