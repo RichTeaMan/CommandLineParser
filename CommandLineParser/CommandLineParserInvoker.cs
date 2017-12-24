@@ -1,4 +1,5 @@
 ﻿using RichTea.CommandLineParser.Exceptions;
+using RichTea.CommandLineParser.ParameterParsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,23 @@ namespace RichTea.CommandLineParser
 {
     public class CommandLineParserInvoker
     {
+
+        public IReadOnlyCollection<IParameterParser> ParameterParserCollection { get; } =
+            new List<IParameterParser> {
+            new BoolParameterParser(),
+            new DateTimeParameterParser(),
+            new DoubleParameterParser(),
+            new IntParameterParser(),
+            new StringParameterParser()
+        };
+
         public MethodInvoker GetCommand(Type type, string[] args)
         {
             var pargs = ParseArgs(args);
             var allowedMethods = new List<Method>();
             foreach (var methodInfo in type.GetRuntimeMethods().Where(m => m.IsStatic))
             {
-                if (Method.TryGetMethod(methodInfo, out Method method))
+                if (Method.TryGetMethod(methodInfo, ParameterParserCollection, out Method method))
                 {
                     allowedMethods.Add(method);
                 }
@@ -55,46 +66,10 @@ namespace RichTea.CommandLineParser
                 // no allowed methods found
                 throw new ArgumentException("There are no valid methods matching.");
             }
-            else {
+            else
+            {
                 return resultMethod;
             }
-        }
-
-        public bool IsValidMethod(MethodInfo methodInfo)
-        {
-            var hasAttr = methodInfo.CustomAttributes.Any(a => a.AttributeType == typeof(ClCommandAttribute));
-            if (hasAttr)
-            {
-                var paras = methodInfo.GetParameters();
-                if (paras.Count() == 0)
-                    throw new ArgumentException(
-                    string.Format("The method '{0}' is a ClCommand, but does not have any paramters.",
-                    methodInfo.Name));
-
-                foreach (var para in paras)
-                {
-                    if (!IsValidParameter(para))
-                        throw new ArgumentException(
-                            string.Format("The method '{0}' is a ClCommand, but does not have all valid ClArg parameters.",
-                            methodInfo.Name));
-                }
-                return true;
-            }
-            return false;
-        }
-
-        public bool IsValidParameter(ParameterInfo parameterInfo)
-        {
-            var hasAttr = parameterInfo.CustomAttributes.Any(a => a.AttributeType == typeof(ClArgsAttribute));
-            var allowedType = parameterInfo.ParameterType == typeof(int) ||
-                parameterInfo.ParameterType == typeof(double) ||
-                parameterInfo.ParameterType == typeof(string) ||
-                parameterInfo.ParameterType == typeof(DateTime) ||
-                parameterInfo.ParameterType == typeof(int?) ||
-                parameterInfo.ParameterType == typeof(double?) ||
-                parameterInfo.ParameterType == typeof(DateTime?);
-
-            return hasAttr && allowedType;
         }
 
         public ParsedArgs ParseArgs(string[] args)

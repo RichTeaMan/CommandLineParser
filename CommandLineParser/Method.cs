@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RichTea.CommandLineParser.ParameterParsers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,7 +8,14 @@ namespace RichTea.CommandLineParser
 {
     public class Method
     {
-        public MethodParameter[] Parameters { get; protected set; }
+        public IParameterParser[] ParameterParsers { get; private set; }
+
+        public ParameterInfo[] ParameterInfos { get; private set; }
+
+        public ParsedResult[] ParsedResults { get; private set; }
+
+        public IList<IParameterParser> SelectedParameterParsers { get; } =
+            new List<IParameterParser>();
 
         public MethodInfo MethodInfo { get; private set; }
         public string Name { get; private set; }
@@ -47,9 +55,12 @@ namespace RichTea.CommandLineParser
             return hasAttr && allowedType;
         }
 
-        public Method(MethodInfo methodInfo)
+        public Method(MethodInfo methodInfo, IEnumerable<IParameterParser> parameterParsers)
         {
             MethodInfo = methodInfo;
+            ParameterParsers = parameterParsers.ToArray();
+            ParameterInfos = methodInfo.GetParameters();
+
             var clCommandAttribute = MethodInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(ClCommandAttribute)) as ClCommandAttribute;
             if (!string.IsNullOrWhiteSpace(clCommandAttribute?.Name))
             {
@@ -66,35 +77,38 @@ namespace RichTea.CommandLineParser
             {
                 throw new ArgumentException("Method is not a ClCommand.");
             }
-
-            var parameters = new List<MethodParameter>();
-            var paras = methodInfo.GetParameters();
-            foreach (var para in paras)
-            {
-                var param = GetParameter(para);
-                if (param != null)
-                    parameters.Add(param);
-                else
-                    throw new ArgumentException(
-                    string.Format("The parameter '{0}' uses an unsupported data type.",
-                    para.Name));
-            }
-            Parameters = parameters.ToArray();
         }
 
-        MethodParameter GetParameter(ParameterInfo info)
+        private IParameterParser GetParameterParser(ParameterInfo parameterInfo)
         {
-            if (MatchesType(info.ParameterType, typeof(DateTime)))
-                return new DateTimeMethodParameter(info);
-            if (MatchesType(info.ParameterType, typeof(double)))
-                return new DoubleMethodParameter(info);
-            if (MatchesType(info.ParameterType, typeof(int)))
-                return new IntMethodParameter(info);
-            if (MatchesType(info.ParameterType, typeof(string)))
-                return new StringMethodParameter(info);
-            if (MatchesType(info.ParameterType, typeof(bool)))
-                return new BoolMethodParameter(info);
-            return null;
+            var pType = parameterInfo.ParameterType;
+
+            Name = parameterInfo.Name;
+            var attr = parameterInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(ClArgsAttribute));
+            var arg = attr as ClArgsAttribute;
+            if (arg == null)
+                throw new ArgumentException("The parameter does not have a ClArgs Attribute.");
+
+            IParameterParser parameterParserResult = null;
+
+            foreach(var parameterParser in ParameterParsers)
+            {
+                if (parameterParser.SupportedTypes.Contains(parameterInfo.ParameterType))
+                {
+                    parameterParserResult = parameterParser;
+                }
+                else if (parameterParser.SupportedTypes.Contains(Nullable.GetUnderlyingType(parameterInfo.ParameterType)))
+                {
+                    parameterParserResult = parameterParser;
+                }
+                else if (parameterInfo.ParameterType.IsArray &&
+                    parameterParser.SupportedTypes.Contains(parameterInfo.ParameterType.GetElementType()))
+                {
+                    parameterParserResult = parameterParser;
+                }
+            }
+
+            return parameterParserResult;
         }
 
         bool MatchesType(Type parameterType, Type type)
@@ -107,44 +121,62 @@ namespace RichTea.CommandLineParser
         public MethodInvoker GetMethodInvoker(ParsedArgs args)
         {
             var argNames = args.Keys;
-            if (args.Verb != Name ||
-                Parameters.All(p => p.SupportsArgument(argNames)) == false)
+            if (args.Verb != Name)
             {
                 return null;
             }
 
-            var parameterValues = new List<object>();
-            foreach (var para in Parameters.OrderBy(p => p.Position))
+            var parsedResultList = new List<ParsedResult>();
+            foreach (var parameterInfo in ParameterInfos)
             {
-                object invokeParam;
-                var alias = para.GetSupportedAlias(argNames);
-                // if null method argument was an optional argument, so pass default value.
-                if (alias == null)
-                    invokeParam = para.DefaultValue;
-                else
+                var attr = parameterInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(ClArgsAttribute));
+                var arg = attr as ClArgsAttribute;
+
+                var parameterParser = GetParameterParser(parameterInfo);
+                if (parameterParser != null)
                 {
-                    // check if parameter is an array
-                    if (para.IsArray)
+                    bool foundValue = false;
+                    foreach(var alias in arg.Args)
                     {
-                        invokeParam = para.GetParameterArray(args[alias].ToArray());
+                        if (args.ContainsKey(alias))
+                        {
+                            var parameterValue = parameterParser.ParseParameter(alias, args[alias].ToArray());
+                            parsedResultList.Add(parameterValue);
+                            foundValue = true;
+                            break;
+                        }
                     }
-                    else
+                    if (!foundValue && parameterInfo.HasDefaultValue)
                     {
-                        invokeParam = para.GetParameter(args[alias].FirstOrDefault());
+                        var defaultParsedResult = new ParsedResult { Parameter = parameterInfo.DefaultValue };
+                        parsedResultList.Add(defaultParsedResult);
                     }
                 }
-                parameterValues.Add(invokeParam);
+                else
+                {
+                    throw new ArgumentException(
+                    string.Format("The parameter '{0}' uses an unsupported data type.",
+                    parameterInfo.Name));
+                }
             }
-            var invoker = new MethodInvoker(this, parameterValues.ToArray());
+
+            if (parsedResultList.Count != ParameterInfos.Count())
+            {
+                return null;
+            }
+
+            object[] methodParameters = parsedResultList.Select(r => r.Parameter).ToArray();
+
+            var invoker = new MethodInvoker(this, methodParameters);
             return invoker;
         }
 
-        public static bool TryGetMethod(MethodInfo methodInfo, out Method method)
+        public static bool TryGetMethod(MethodInfo methodInfo, IEnumerable<IParameterParser> parameterParsers, out Method method)
         {
             method = null;
             try
             {
-                method = new Method(methodInfo);
+                method = new Method(methodInfo, parameterParsers);
                 return true;
             }
             catch

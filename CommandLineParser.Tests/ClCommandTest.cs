@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RichTea.CommandLineParser.ParameterParsers;
 using System.Linq;
 using System.Reflection;
 
@@ -49,48 +50,21 @@ namespace RichTea.CommandLineParser.Tests
         }
 
         [TestMethod]
-        public void IntDefaultParameterTest()
+        public void IntParameterParserTest()
         {
-            var methodInfo = GetType().GetRuntimeMethods().Single(m => m.IsStatic && m.Name == "TestMethod");
+            var intParameterParser = new IntParameterParser();
+            var parseResult = intParameterParser.ParseParameter("test", new string[]{ "20" });
 
-            var intParameter = methodInfo.GetParameters().Single(p => p.ParameterType == typeof(int));
-            var intMethodParameter = new IntMethodParameter(intParameter);
-
-            Assert.AreEqual("intParam", intMethodParameter.Name);
-            Assert.AreEqual(true, intMethodParameter.Optional);
-            Assert.AreEqual(false, intMethodParameter.IsArray);
-            Assert.AreEqual(false, intMethodParameter.IsNullable);
-            Assert.AreEqual(20, intMethodParameter.DefaultValue);
+            Assert.AreEqual(20, parseResult.Parameter);
         }
 
         [TestMethod]
-        public void NullableIntDefaultParameterTest()
+        public void StringParameterParserTest()
         {
-            var methodInfo = GetType().GetRuntimeMethods().Single(m => m.IsStatic && m.Name == "NullableParamTestMethod");
+            var stringMethodParameter = new StringParameterParser();
+            var parseResult = stringMethodParameter.ParseParameter("test", new string[] { "foo" });
 
-            var intParameter = methodInfo.GetParameters().Single(p => p.Name == "intParam");
-            var intMethodParameter = new IntMethodParameter(intParameter);
-
-            Assert.AreEqual("intParam", intMethodParameter.Name);
-            Assert.AreEqual(true, intMethodParameter.Optional);
-            Assert.AreEqual(false, intMethodParameter.IsArray);
-            Assert.AreEqual(true, intMethodParameter.IsNullable);
-            Assert.AreEqual(20, intMethodParameter.DefaultValue);
-        }
-
-        [TestMethod]
-        public void StringDefaultParameterTest()
-        {
-            var methodInfo = GetType().GetRuntimeMethods().Single(m => m.IsStatic && m.Name == "TestMethod");
-
-            var stringParameter = methodInfo.GetParameters().Single(p => p.ParameterType == typeof(string));
-            var stringMethodParameter = new StringMethodParameter(stringParameter);
-
-            Assert.AreEqual("stringParam", stringMethodParameter.Name);
-            Assert.AreEqual(true, stringMethodParameter.Optional);
-            Assert.AreEqual(false, stringMethodParameter.IsArray);
-            Assert.AreEqual(false, stringMethodParameter.IsNullable);
-            Assert.AreEqual("foo", stringMethodParameter.DefaultValue);
+            Assert.AreEqual("foo", parseResult.Parameter);
         }
     }
 }
