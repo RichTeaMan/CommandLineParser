@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RichTea.CommandLineParser.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -24,14 +25,39 @@ namespace RichTea.CommandLineParser
                 throw new ArgumentException("There are no valid ClCommand methods.");
             }
 
-            foreach (var method in allowedMethods)
+            if (allowedMethods.Count(m => m.IsDefault) >= 2)
             {
-                var invoker = method.GetMethodInvoker(pargs);
-                if (invoker != null)
-                    return invoker;
+                throw new AmbiguousConfigurationException();
             }
-            // no allowed methods found
-            throw new ArgumentException("There are no valid methods matching.");
+
+            MethodInvoker resultMethod = null;
+
+            // check for default method
+            if (string.IsNullOrEmpty(pargs.Verb) && allowedMethods.Any(m => m.IsDefault))
+            {
+                resultMethod = allowedMethods.Single(m => m.IsDefault).GetMethodInvoker(pargs);
+            }
+            else
+            {
+                foreach (var method in allowedMethods)
+                {
+                    var invoker = method.GetMethodInvoker(pargs);
+                    if (invoker != null)
+                    {
+                        resultMethod = invoker;
+                        break;
+                    }
+                }
+            }
+
+            if (null == resultMethod)
+            {
+                // no allowed methods found
+                throw new ArgumentException("There are no valid methods matching.");
+            }
+            else {
+                return resultMethod;
+            }
         }
 
         public bool IsValidMethod(MethodInfo methodInfo)

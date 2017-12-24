@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RichTea.CommandLineParser
 {
@@ -13,6 +11,7 @@ namespace RichTea.CommandLineParser
 
         public MethodInfo MethodInfo { get; private set; }
         public string Name { get; private set; }
+        public bool IsDefault { get; private set; }
 
         static bool IsValidMethod(MethodInfo methodInfo)
         {
@@ -51,11 +50,22 @@ namespace RichTea.CommandLineParser
         public Method(MethodInfo methodInfo)
         {
             MethodInfo = methodInfo;
-            var attr = MethodInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(ClCommandAttribute)) as ClCommandAttribute;
-            if (attr == null || string.IsNullOrWhiteSpace(attr.Name))
-                throw new ArgumentException("Method is not a ClCommand or it has no name set.");
+            var clCommandAttribute = MethodInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(ClCommandAttribute)) as ClCommandAttribute;
+            if (!string.IsNullOrWhiteSpace(clCommandAttribute?.Name))
+            {
+                Name = clCommandAttribute.Name;
+            }
 
-            Name = attr.Name;
+            var defaultClCommand = MethodInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(DefaultClCommand)) as DefaultClCommand;
+            if (null != defaultClCommand)
+            {
+                IsDefault = true;
+            }
+
+            if (null == clCommandAttribute && null == defaultClCommand)
+            {
+                throw new ArgumentException("Method is not a ClCommand.");
+            }
 
             var parameters = new List<MethodParameter>();
             var paras = methodInfo.GetParameters();
@@ -98,7 +108,6 @@ namespace RichTea.CommandLineParser
         {
             var argNames = args.Keys;
             if (args.Verb != Name ||
-                // Parameters.Count() != args.Count ||
                 Parameters.All(p => p.SupportsArgument(argNames)) == false)
             {
                 return null;

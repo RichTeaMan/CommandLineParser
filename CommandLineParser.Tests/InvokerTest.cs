@@ -1,7 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
-using System.Reflection;
 
 namespace RichTea.CommandLineParser.Tests
 {
@@ -23,6 +20,21 @@ namespace RichTea.CommandLineParser.Tests
             {
                 MethodName = "test-method-no-param"
             };
+        }
+
+        [DefaultClCommand]
+        public static void DefaultTestMethod(
+            [ClArgs("a")]
+            int a,
+            [ClArgs("b")]
+            string b
+        )
+        {
+            methodInvocationInfo = new MethodInvocationInfo
+            {
+                MethodName = "default-test-method"
+            }.AddParameter(nameof(a), a)
+            .AddParameter(nameof(b), b);
         }
 
         [ClCommand("test-method")]
@@ -78,6 +90,27 @@ namespace RichTea.CommandLineParser.Tests
             var expectedMethodInvocationInfo = new MethodInvocationInfo
             {
                 MethodName = "test-method"
+            }
+            .AddParameter(nameof(a), a)
+            .AddParameter(nameof(b), b);
+
+            Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
+        }
+
+        [TestMethod]
+        public void DefaultBasicInvocationParamsTest()
+        {
+            int a = 909;
+            string b = "testB";
+            string[] args = { "-a", a.ToString(), "-b", b.ToString() };
+            var invoker = new CommandLineParserInvoker();
+            var command = invoker.GetCommand(typeof(InvokerTest), args);
+            command.Invoke();
+
+            // expectation
+            var expectedMethodInvocationInfo = new MethodInvocationInfo
+            {
+                MethodName = "default-test-method"
             }
             .AddParameter(nameof(a), a)
             .AddParameter(nameof(b), b);
