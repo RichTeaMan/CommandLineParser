@@ -62,7 +62,7 @@ namespace RichTea.CommandLineParser.Tests
             {
                 MethodName = "array-test-method"
             }
-            .AddParameter("a", new [] { "909", "818" })
+            .AddParameter("a", new[] { 909, 818 })
             .AddParameter("b", new[] { "testB", "testBB" });
 
             Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
