@@ -10,7 +10,7 @@ namespace RichTea.CommandLineParser
     public class CommandLineParserInvoker
     {
 
-        public IReadOnlyCollection<IParameterParser> ParameterParserCollection { get; } =
+        public List<IParameterParser> _parameterParserCollection { get; } =
             new List<IParameterParser> {
             new BoolParameterParser(),
             new DateTimeParameterParser(),
@@ -18,6 +18,14 @@ namespace RichTea.CommandLineParser
             new IntParameterParser(),
             new StringParameterParser()
         };
+
+        public IReadOnlyCollection<IParameterParser> ParameterParserCollection => _parameterParserCollection;
+
+        public CommandLineParserInvoker AddParameterParser(IParameterParser parameterParser)
+        {
+            _parameterParserCollection.Add(parameterParser);
+            return this;
+        }
 
         public MethodInvoker GetCommand(Type type, string[] args)
         {
