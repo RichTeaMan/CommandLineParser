@@ -120,7 +120,6 @@ namespace RichTea.CommandLineParser
 
         public MethodInvoker GetMethodInvoker(ParsedArgs args)
         {
-            var argNames = args.Keys;
             if (args.Verb != Name)
             {
                 return null;
@@ -140,7 +139,46 @@ namespace RichTea.CommandLineParser
                     {
                         if (args.ContainsKey(alias))
                         {
-                            var parameterValue = parameterParser.ParseParameter(alias, args[alias].ToArray());
+                            ParsedResult parameterValue;
+                            if (parameterInfo.ParameterType.IsArray)
+                            {
+                                List<ParsedResult> parameterValueList = new List<ParsedResult>();
+                                foreach(var argElement in args[alias])
+                                {
+                                    ParsedResult parameterListElement = parameterParser.ParseParameter(alias, new[] { argElement });
+                                    parameterValueList.Add(parameterListElement);
+                                }
+
+                                var combinedResult = Array.CreateInstance(parameterInfo.ParameterType.GetElementType(), parameterValueList.Count);
+                                for(int i = 0; i < parameterValueList.Count; i++)
+                                {
+                                    combinedResult.SetValue(Convert.ChangeType(
+                                        parameterValueList[i].Parameter,
+                                        parameterInfo.ParameterType.GetElementType()),
+                                        i);
+                                }
+
+                                ParsedResult combinedParsedResult = new ParsedResult
+                                {
+                                    Parameter = combinedResult
+                                };
+                                foreach(var parsedResult in parameterValueList)
+                                {
+                                    foreach(var error in parsedResult.ErrorOutput)
+                                    {
+                                        combinedParsedResult.ErrorOutput.Add(error);
+                                    }
+                                    foreach (var warning in parsedResult.WarningOutput)
+                                    {
+                                        combinedParsedResult.WarningOutput.Add(warning);
+                                    }
+                                }
+                                parameterValue = combinedParsedResult;
+                            }
+                            else
+                            {
+                                parameterValue = parameterParser.ParseParameter(alias, args[alias].ToArray());
+                            }
                             parsedResultList.Add(parameterValue);
                             foundValue = true;
                             break;

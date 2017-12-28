@@ -8,8 +8,8 @@ namespace RichTea.CommandLineParser.ParameterParsers
     {
         public object Parameter { get; set; }
 
-        public IList<ParserOutput> ErrorOutput { get; }
+        public IList<ParserOutput> ErrorOutput { get; } = new List<ParserOutput>();
 
-        public IList<ParserOutput> WarningOutput { get; }
+        public IList<ParserOutput> WarningOutput { get; } = new List<ParserOutput>();
     }
 }

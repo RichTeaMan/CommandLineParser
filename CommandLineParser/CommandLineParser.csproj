@@ -18,4 +18,8 @@
     <RootNamespace>RichTea.CommandLineParser</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RichTea.Common" Version="0.4.0-beta" />
+  </ItemGroup>
+
 </Project>
