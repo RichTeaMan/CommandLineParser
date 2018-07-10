@@ -53,8 +53,9 @@ static void Main(string[] args)
     }
 }
 
+// methods must be public static
 [DefaultClCommand]
-private void ProgramState([ClArgs("resultDirectory", "rd")]string resultDirectory = "Results")
+public static void ProgramState([ClArgs("resultDirectory", "rd")]string resultDirectory = "Results")
 {
     // program code here...
 }
