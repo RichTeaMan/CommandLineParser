@@ -21,7 +21,8 @@ namespace RichTea.CommandLineParser
         /// <summary>
         /// Invokes the determined method. If the method is async this will wait for the task to complete before returning.
         /// </summary>
-        public void Invoke()
+        /// <returns>The object returned (void is null). Async methods will return the wrapping task object.</returns>
+        public object Invoke()
         {
             var result = Method.MethodInfo.Invoke(null, Parameters);
 
@@ -33,7 +34,7 @@ namespace RichTea.CommandLineParser
                 var task = result as Task;
                 task.Wait();
             }
-
+            return result;
         }
     }
 }
