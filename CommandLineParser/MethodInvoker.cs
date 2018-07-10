@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +18,22 @@ namespace RichTea.CommandLineParser
             Parameters = parameters;
         }
 
+        /// <summary>
+        /// Invokes the determined method. If the method is async this will wait for the task to complete before returning.
+        /// </summary>
         public void Invoke()
         {
-            Method.MethodInfo.Invoke(null, Parameters);
+            var result = Method.MethodInfo.Invoke(null, Parameters);
+
+            // async methods have this attribute.
+            var asyncAttribute = Method.MethodInfo.CustomAttributes.FirstOrDefault(ca => ca.AttributeType == typeof(AsyncStateMachineAttribute));
+
+            if (asyncAttribute != null)
+            {
+                var task = result as Task;
+                task.Wait();
+            }
+
         }
     }
 }
