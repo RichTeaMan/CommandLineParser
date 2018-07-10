@@ -15,7 +15,7 @@ This project uses [Cake](https://cakebuild.net)!
 | Master | [![Build status](https://ci.appveyor.com/api/projects/status/gg7er3fta9sjxy5m/branch/master?svg=true)](https://ci.appveyor.com/project/RichTeaMan/commandlineparser/branch/master) | [![Build Status](https://travis-ci.org/RichTeaMan/CommandLineParser.svg?branch=master)](https://travis-ci.org/RichTeaMan/CommandLineParser) |
 
 ## Example
-```
+```C#
 
 static void Main(string[] args)
 {
