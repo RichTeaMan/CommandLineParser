@@ -28,7 +28,7 @@ namespace RichTea.CommandLineParser
             // async methods have this attribute.
             var asyncAttribute = Method.MethodInfo.CustomAttributes.FirstOrDefault(ca => ca.AttributeType == typeof(AsyncStateMachineAttribute));
 
-            if (asyncAttribute != null)
+            if (asyncAttribute != null && result != null)
             {
                 var task = result as Task;
                 task.Wait();

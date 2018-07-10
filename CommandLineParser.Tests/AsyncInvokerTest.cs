@@ -35,6 +35,17 @@ namespace RichTea.CommandLineParser.Tests
             return 0;
         }
 
+        [ClCommand("async-void-test-method-no-param")]
+        public static async void TestVoidMethodNoParamAsync()
+        {
+            methodInvocationInfo = new MethodInvocationInfo
+            {
+                MethodName = "async-void-test-method-no-param"
+            };
+            // in the void test delay happens last as the such methods can't be awaited on like task asyncs can.
+            await Task.Delay(500);
+        }
+
         [TestMethod]
         public void BasicInvocationAsyncTest()
         {
@@ -64,6 +75,23 @@ namespace RichTea.CommandLineParser.Tests
             var expectedMethodInvocationInfo = new MethodInvocationInfo
             {
                 MethodName = "async-generic-test-method-no-param"
+            };
+
+            Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
+        }
+
+        [TestMethod]
+        public void BasicInvocationVoidAsyncTest()
+        {
+            string[] args = { "async-void-test-method-no-param" };
+            var invoker = new CommandLineParserInvoker();
+            var command = invoker.GetCommand(typeof(AsyncInvokerTest), args);
+            command.Invoke();
+
+            // expectation
+            var expectedMethodInvocationInfo = new MethodInvocationInfo
+            {
+                MethodName = "async-void-test-method-no-param"
             };
 
             Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
