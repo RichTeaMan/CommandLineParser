@@ -29,5 +29,5 @@ The annotation, along with ClArgs attributes determine how the function interact
 the function gets invoked. If a matching function can't be found a message
 is printed to the console and -1 is returned.
 
-If the invoke function is successful and returns an integer ParseInteger will return
+If the invoke function is successful and returns an integer ParseCommand will return
 that value. Otherwise it will return 0.

@@ -18,7 +18,7 @@ namespace RichTea.CommandLineParser
         /// If the invoked function throws an exception ParseCommand will print the exception
         /// and all inner exceptions to the console and return 1.
         /// 
-        /// If the invoke function is successful and returns an integer ParseInteger will return
+        /// If the invoke function is successful and returns an integer ParseCommand will return
         /// that value. Otherwise it will return 0.
         /// </remarks>
         /// <typeparam name="T">Type containing functions with command attributes.</typeparam>
