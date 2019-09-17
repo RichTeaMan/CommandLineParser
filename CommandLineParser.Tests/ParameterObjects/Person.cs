@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using RichTea.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,12 +25,12 @@ namespace RichTea.CommandLineParser.Tests.ParameterObjects
             return new EqualsBuilder<Person>(this, that)
                 .Append(Forename, other?.Forename)
                 .Append(Surname, other?.Surname)
-                .Equals();
+                .AreEqual;
         }
 
         public override int GetHashCode()
         {
-            return new HashCodeBuilder<Person>(this)
+            return new HashCodeBuilder()
                 .Append(Forename)
                 .Append(Surname)
                 .HashCode;

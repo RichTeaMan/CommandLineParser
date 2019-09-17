@@ -1,7 +1,5 @@
-﻿using Common;
-using System;
+﻿using RichTea.Common;
 using System.Collections.Generic;
-using System.Text;
 
 namespace RichTea.CommandLineParser.Tests
 {
@@ -30,14 +28,14 @@ namespace RichTea.CommandLineParser.Tests
             return new EqualsBuilder<MethodInvocationInfo>(this, that)
                 .Append(p => p.MethodName)
                 .Append(p => p.Parameters)
-                .Equals();
+                .AreEqual;
         }
 
         public override int GetHashCode()
         {
-            return new HashCodeBuilder<MethodInvocationInfo>(this)
-                .Append(p => p.MethodName)
-                .Append(p => p.Parameters)
+            return new HashCodeBuilder()
+                .Append(MethodName)
+                .Append(Parameters)
                 .HashCode;
         }
     }
