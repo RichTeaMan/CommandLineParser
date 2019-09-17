@@ -73,7 +73,8 @@
   
   <h1 id="RichTea_CommandLineParser_ClCommandAttribute" data-uid="RichTea.CommandLineParser.ClCommandAttribute" class="text-break">Class ClCommandAttribute
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Marks a function that is invokeable via the command line arguments.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -111,18 +112,25 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ClCommandAttribute : Attribute</code></pre>
   </div>
+  <h5 id="RichTea_CommandLineParser_ClCommandAttribute_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>A function must be given a name (a verb) to be invoked.</p>
+<p>A method with this attribute must be static and public to be invokeable.</p>
+<p>All parameters (if any) must  have an <a class="xref" href="RichTea.CommandLineParser.ClArgsAttribute.html">ClArgsAttribute</a> attribute and
+have a supported type to be matched.</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute__ctor_System_String_.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute__ctor_System_String_.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ClCommand.cs/#L12">View Source</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ClCommand.cs/#L27">View Source</a>
   </span>
   <a id="RichTea_CommandLineParser_ClCommandAttribute__ctor_" data-uid="RichTea.CommandLineParser.ClCommandAttribute.#ctor*"></a>
   <h4 id="RichTea_CommandLineParser_ClCommandAttribute__ctor_System_String_" data-uid="RichTea.CommandLineParser.ClCommandAttribute.#ctor(System.String)">ClCommandAttribute(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a ClCommandAttribute with the given name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -149,14 +157,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute_Name.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute_Name.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ClCommand.cs/#L10">View Source</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ClCommand.cs/#L21">View Source</a>
   </span>
   <a id="RichTea_CommandLineParser_ClCommandAttribute_Name_" data-uid="RichTea.CommandLineParser.ClCommandAttribute.Name*"></a>
   <h4 id="RichTea_CommandLineParser_ClCommandAttribute_Name" data-uid="RichTea.CommandLineParser.ClCommandAttribute.Name">Name</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the name of this function. This name is the verb that prompts this function.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -181,10 +190,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute_GetCommand_System_Type_System_String___.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.GetCommand(System.Type%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute_GetCommand_System_Type_System_String___.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.GetCommand(System.Type%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ClCommand.cs/#L17">View Source</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ClCommand.cs/#L32">View Source</a>
   </span>
   <a id="RichTea_CommandLineParser_ClCommandAttribute_GetCommand_" data-uid="RichTea.CommandLineParser.ClCommandAttribute.GetCommand*"></a>
   <h4 id="RichTea_CommandLineParser_ClCommandAttribute_GetCommand_System_Type_System_String___" data-uid="RichTea.CommandLineParser.ClCommandAttribute.GetCommand(System.Type,System.String[])">GetCommand(Type, String[])</h4>
@@ -234,10 +243,10 @@ public static MethodInvoker GetCommand(Type type, string[] args)</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute_ParseArgs_System_String___.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.ParseArgs(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute_ParseArgs_System_String___.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute.ParseArgs(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ClCommand.cs/#L24">View Source</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ClCommand.cs/#L39">View Source</a>
   </span>
   <a id="RichTea_CommandLineParser_ClCommandAttribute_ParseArgs_" data-uid="RichTea.CommandLineParser.ClCommandAttribute.ParseArgs*"></a>
   <h4 id="RichTea_CommandLineParser_ClCommandAttribute_ParseArgs_System_String___" data-uid="RichTea.CommandLineParser.ClCommandAttribute.ParseArgs(System.String[])">ParseArgs(String[])</h4>
@@ -288,10 +297,10 @@ public static ParsedArgs ParseArgs(string[] args)</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ClCommandAttribute.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ClCommandAttribute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ClCommand.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ClCommand.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

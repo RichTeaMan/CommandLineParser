@@ -9,9 +9,9 @@ namespace RichTea.CommandLineParser
         /// </summary>
         /// <remarks>
         /// <typeparamref name="T"/> is an object that should have functions with command
-        /// annotations (<see cref="ClCommandAttribute"/>, <see cref="DefaultClCommand"/>).
+        /// attributes (<see cref="ClCommandAttribute"/>, <see cref="DefaultClCommand"/>).
         /// Functions should be static and public.
-        /// These annotations determine how the function interacts with <paramref name="args"/>
+        /// These attributes determine how the function interacts with <paramref name="args"/>
         /// and which function gets invoked. If a matching function can't be found a message
         /// is printed to the console and -1 is returned.
         /// 
@@ -21,7 +21,7 @@ namespace RichTea.CommandLineParser
         /// If the invoke function is successful and returns an integer ParseInteger will return
         /// that value. Otherwise it will return 0.
         /// </remarks>
-        /// <typeparam name="T">Type containing functions with command annotations.</typeparam>
+        /// <typeparam name="T">Type containing functions with command attributes.</typeparam>
         /// <param name="args">Program arguments. This is expected to be the arguments passed to main.</param>
         /// <returns>
         /// * 0: Function ran successfully.

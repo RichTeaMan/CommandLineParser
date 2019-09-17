@@ -50,7 +50,8 @@ Task("Test")
     DotNetCoreTest("CommandLineParser.Tests/CommandLineParser.Tests.csproj");
 });
 
-Task("Docs").Does(() =>
+Task("Docs")
+	.Does(() =>
 {
     DocFxMetadata("./Docfx/docfx.json");
     DocFxBuild("./Docfx/docfx.json");

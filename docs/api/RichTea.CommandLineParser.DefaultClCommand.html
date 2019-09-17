@@ -74,7 +74,6 @@
   <h1 id="RichTea_CommandLineParser_DefaultClCommand" data-uid="RichTea.CommandLineParser.DefaultClCommand" class="text-break">Class DefaultClCommand
   </h1>
   <div class="markdown level0 summary"><p>This attribute is for default command line methods. If no verb is supplised this method will be used.</p>
-<p>A run time error will occur if multiple default attributes are used.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -113,6 +112,11 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class DefaultClCommand : Attribute</code></pre>
   </div>
+  <h5 id="RichTea_CommandLineParser_DefaultClCommand_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>A run time error will occur if multiple default attributes are used.</p>
+<p>All parameters (if any) must  have an <a class="xref" href="RichTea.CommandLineParser.ClArgsAttribute.html">ClArgsAttribute</a> attribute and
+have a supported type to be matched.</p>
+</div>
 </article>
           </div>
           
@@ -121,10 +125,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_DefaultClCommand.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.DefaultClCommand%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_DefaultClCommand.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.DefaultClCommand%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/DefaultClCommand.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/DefaultClCommand.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
