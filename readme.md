@@ -3,6 +3,7 @@
 [![NuGet](https://img.shields.io/nuget/v/RichTea.CommandLineParser.svg?style=flat)](https://www.nuget.org/packages/RichTea.CommandLineParser/)
 
 This project provides a command line parsing utility.
+[Documentation available at richteaman.github.io/CommandLineParser/.](http://richteaman.github.io/CommandLineParser/)
 
 ## Cake Tasks
 
