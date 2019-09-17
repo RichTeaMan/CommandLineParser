@@ -91,6 +91,8 @@
     <div><span class="xref">System.Collections.IDictionary</span></div>
     <div><span class="xref">System.Collections.ICollection</span></div>
     <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">System.Runtime.Serialization.IDeserializationCallback</span></div>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -114,6 +116,12 @@
     </div>
     <div>
       <span class="xref">System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;System.String&gt;&gt;.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;System.String&gt;&gt;.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;System.String&gt;&gt;.OnDeserialization(System.Object)</span>
     </div>
     <div>
       <span class="xref">System.Collections.Generic.Dictionary&lt;System.String, System.Collections.Generic.List&lt;System.String&gt;&gt;.Remove(System.String)</span>
@@ -231,16 +239,16 @@
   <h6><strong>Assembly</strong>: RichTea.CommandLineParser.dll</h6>
   <h5 id="RichTea_CommandLineParser_ParsedArgs_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ParsedArgs : Dictionary&lt;string, List&lt;string&gt;&gt;, IDictionary&lt;string, List&lt;string&gt;&gt;, ICollection&lt;KeyValuePair&lt;string, List&lt;string&gt;&gt;&gt;, IReadOnlyDictionary&lt;string, List&lt;string&gt;&gt;, IReadOnlyCollection&lt;KeyValuePair&lt;string, List&lt;string&gt;&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, List&lt;string&gt;&gt;&gt;, IDictionary, ICollection, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public class ParsedArgs : Dictionary&lt;string, List&lt;string&gt;&gt;, IDictionary&lt;string, List&lt;string&gt;&gt;, ICollection&lt;KeyValuePair&lt;string, List&lt;string&gt;&gt;&gt;, IReadOnlyDictionary&lt;string, List&lt;string&gt;&gt;, IReadOnlyCollection&lt;KeyValuePair&lt;string, List&lt;string&gt;&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, List&lt;string&gt;&gt;&gt;, IDictionary, ICollection, IEnumerable, IDeserializationCallback, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ParsedArgs__ctor.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ParsedArgs.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ParsedArgs__ctor.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ParsedArgs.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ParsedArgs.cs/#L13">View Source</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ParsedArgs.cs/#L13">View Source</a>
   </span>
   <a id="RichTea_CommandLineParser_ParsedArgs__ctor_" data-uid="RichTea.CommandLineParser.ParsedArgs.#ctor*"></a>
   <h4 id="RichTea_CommandLineParser_ParsedArgs__ctor" data-uid="RichTea.CommandLineParser.ParsedArgs.#ctor">ParsedArgs()</h4>
@@ -254,10 +262,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ParsedArgs_Verb.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ParsedArgs.Verb%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ParsedArgs_Verb.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ParsedArgs.Verb%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ParsedArgs.cs/#L11">View Source</a>
+    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ParsedArgs.cs/#L11">View Source</a>
   </span>
   <a id="RichTea_CommandLineParser_ParsedArgs_Verb_" data-uid="RichTea.CommandLineParser.ParsedArgs.Verb*"></a>
   <h4 id="RichTea_CommandLineParser_ParsedArgs_Verb" data-uid="RichTea.CommandLineParser.ParsedArgs.Verb">Verb</h4>
@@ -307,6 +315,12 @@
   <div>
       <span class="xref">System.Collections.IEnumerable</span>
   </div>
+  <div>
+      <span class="xref">System.Runtime.Serialization.IDeserializationCallback</span>
+  </div>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -315,10 +329,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_ParsedArgs.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ParsedArgs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_ParsedArgs.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.ParsedArgs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/ParsedArgs.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/ParsedArgs.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -82,10 +82,20 @@
     <div class="level2"><span class="xref">CommandLineParserException</span></div>
       <div class="level3"><a class="xref" href="RichTea.CommandLineParser.Exceptions.AmbiguousConfigurationException.html">AmbiguousConfigurationException</a></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
       <span class="xref">System.Exception.GetBaseException()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.GetType()</span>
     </div>
     <div>
       <span class="xref">System.Exception.ToString()</span>
@@ -112,6 +122,12 @@
       <span class="xref">System.Exception.StackTrace</span>
     </div>
     <div>
+      <span class="xref">System.Exception.TargetSite</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.SerializeObjectState</span>
+    </div>
+    <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
     <div>
@@ -119,9 +135,6 @@
     </div>
     <div>
       <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
     </div>
     <div>
       <span class="xref">System.Object.MemberwiseClone()</span>
@@ -134,7 +147,11 @@
   <h6><strong>Assembly</strong>: RichTea.CommandLineParser.dll</h6>
   <h5 id="RichTea_CommandLineParser_Exceptions_CommandLineParserException_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CommandLineParserException : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public class CommandLineParserException : Exception, ISerializable</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
   </div>
 </article>
           </div>
@@ -144,10 +161,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/7f9b111df93771dc8bcde742677d45eb0f8c1351/apiSpec/new?filename=RichTea_CommandLineParser_Exceptions_CommandLineParserException.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.Exceptions.CommandLineParserException%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/new/master/apiSpec/new?filename=RichTea_CommandLineParser_Exceptions_CommandLineParserException.md&amp;value=---%0Auid%3A%20RichTea.CommandLineParser.Exceptions.CommandLineParserException%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/7f9b111df93771dc8bcde742677d45eb0f8c1351/CommandLineParser/Exceptions/CommandLineParserException.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/RichTeaMan/CommandLineParser/blob/master/CommandLineParser/Exceptions/CommandLineParserException.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

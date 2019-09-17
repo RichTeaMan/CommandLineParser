@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ClArgsAttribute.html",
-          "hash": "8kdkuc/39JzFFzdjGYACXQ=="
+          "hash": "0zhL+RAhSxiyF9rReo+cDQ=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ClCommandAttribute.html",
-          "hash": "zuvLBVN4ciG0CuJ7KsBMNQ=="
+          "hash": "usJ6OLsMxhv3Wgl2H/qPOQ=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.CommandLineParserInvoker.html",
-          "hash": "r9iUW25tsXPnfSgmRWl/HA=="
+          "hash": "qiI60TlfnHFpbt3jQB6rhw=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.DefaultClCommand.html",
-          "hash": "IX2nXWSZFhw6g6JCgIceTQ=="
+          "hash": "nvEWdGbBpUnjWCZmRLVe8Q=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.Exceptions.AmbiguousConfigurationException.html",
-          "hash": "8uMPFPnjSlEnN/7jStkjKg=="
+          "hash": "sLocf5/xTtfksl68f2fl9g=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.Exceptions.CommandLineParserException.html",
-          "hash": "hJefg/apjf1VUpvfm5hJpA=="
+          "hash": "wsAYw1pHm7P0Fepf7wq9KA=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.Method.html",
-          "hash": "0pq7E0vs4C7uQzM0itD0Yw=="
+          "hash": "kajwdZ8kaquTCpuPR0gD4g=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.MethodInvoker.html",
-          "hash": "eLgz4GI9xUEC5xqYAu0wUA=="
+          "hash": "fq9/R3QOi+P+Ttj2ZP8F6w=="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.BoolParameterParser.html",
-          "hash": "6JfRbHXsk4IMtDjc91Srdg=="
+          "hash": "c9czG00AFWsttTK/oG3pcA=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.DateTimeParameterParser.html",
-          "hash": "pXvCYT2GBobnNqS9Jh2K1g=="
+          "hash": "tdqzyaloRY5CsgH9q+I0ZA=="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.DoubleParameterParser.html",
-          "hash": "wfvoENeXXEolq8diWGnywg=="
+          "hash": "vK/bkowmK5y3ksjCckTotg=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.IParameterParser.html",
-          "hash": "T7a+YQ5bQk9A/vjnWqEgHg=="
+          "hash": "Ro0PWrjhbvFwST+ewetqFQ=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.IntParameterParser.html",
-          "hash": "ogUds8Hv6cuWc68WcJOmyw=="
+          "hash": "zUFWQBRG4MidDdmpkOkRfg=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParameterParser.html",
-          "hash": "ElkaXK9PbCFFnuDmQpsG3w=="
+          "hash": "yMPYAPsFWABMdZrCoI0beQ=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParsedResult.html",
-          "hash": "MmxySSafNAzlcUdmGxNQtA=="
+          "hash": "/ObGMPbd/htzBFc/OoJuxQ=="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParserOutput.html",
-          "hash": "YiS1vLN0NA2QoUVj9BfXfw=="
+          "hash": "jrykT1Der+VFeAvr3Q3EKQ=="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.StringParameterParser.html",
-          "hash": "poQwY53jf86ZTNMwJQa07A=="
+          "hash": "tYdsMriG45WjOcAbgSfreg=="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.ParsedArgs.html",
-          "hash": "8o+KfLyLsIlZ1qyXZIQfBA=="
+          "hash": "9eHEWCnZ7ROsoue7T3s1+w=="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/RichTea.CommandLineParser.Parser.html",
-          "hash": "HOsT77SvbGnqx4yvi8e8ZQ=="
+          "hash": "EKp+vLzAS9574BE5cA6WKw=="
         }
       },
       "is_incremental": false,
@@ -349,12 +349,11 @@
         "skipped_file_count": 0
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
+          "total_file_count": 3,
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
@@ -362,11 +361,12 @@
           "total_file_count": 22,
           "skipped_file_count": 3
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
+          "total_file_count": 0,
+          "skipped_file_count": 0
         }
       }
     },
