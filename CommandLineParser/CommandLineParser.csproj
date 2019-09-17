@@ -3,23 +3,31 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.0.3.0</AssemblyVersion>
-    <FileVersion>0.0.3.0</FileVersion>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.4.0.0</FileVersion>
     <PackageProjectUrl>https://github.com/RichTeaMan/CommandLineParser</PackageProjectUrl>
     <RepositoryUrl>https://github.com/RichTeaMan/CommandLineParser</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/RichTeaMan/CommandLineParser/blob/master/license.txt</PackageLicenseUrl>
-    <Copyright>Thomas Holmes 2017</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <Copyright>Thomas Holmes 2019</Copyright>
     <PackageTags>command line</PackageTags>
-    <Version>0.3-beta</Version>
+    <Version>0.4-beta</Version>
     <PackageId>RichTea.CommandLineParser</PackageId>
     <Authors>Thomas Holmes</Authors>
     <Company />
     <AssemblyName>RichTea.CommandLineParser</AssemblyName>
     <RootNamespace>RichTea.CommandLineParser</RootNamespace>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="RichTea.Common" Version="0.5.0-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\license.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
