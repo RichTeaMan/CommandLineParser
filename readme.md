@@ -11,6 +11,8 @@ This project uses [Cake](https://cakebuild.net)!
 * cake -target=Restore-Nuget-Packages
 * cake -target=Build
 * cake -target=Test
+* cake -target=Docs
+* cake -target=DocsServe
 
 ## CI
 

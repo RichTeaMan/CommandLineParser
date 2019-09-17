@@ -1,0 +1,390 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/thoma/projects/CommandLineParser/Docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ClArgsAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ClArgsAttribute.html",
+          "hash": "9E55pH3V9osa3VZubLP2Lg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ClCommandAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ClCommandAttribute.html",
+          "hash": "c7j9dr9pe6yRt39rw6xEaw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.CommandLineParserInvoker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.CommandLineParserInvoker.html",
+          "hash": "qiI60TlfnHFpbt3jQB6rhw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.DefaultClCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.DefaultClCommand.html",
+          "hash": "wgZZy0ovqcm/Tfg7s/tgTQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.Exceptions.AmbiguousConfigurationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.Exceptions.AmbiguousConfigurationException.html",
+          "hash": "xdZZjFHwXrd0im3dssUyYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.Exceptions.CommandLineParserException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.Exceptions.CommandLineParserException.html",
+          "hash": "UlyeVq/A99RY7MS/5OlufQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.Exceptions.html",
+          "hash": "o8jVz6QKorA2RrLX2owEFg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.Method.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.Method.html",
+          "hash": "kajwdZ8kaquTCpuPR0gD4g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.MethodInvoker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.MethodInvoker.html",
+          "hash": "fq9/R3QOi+P+Ttj2ZP8F6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.BoolParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.BoolParameterParser.html",
+          "hash": "c9czG00AFWsttTK/oG3pcA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.DateTimeParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.DateTimeParameterParser.html",
+          "hash": "tdqzyaloRY5CsgH9q+I0ZA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.DoubleParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.DoubleParameterParser.html",
+          "hash": "vK/bkowmK5y3ksjCckTotg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.IParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.IParameterParser.html",
+          "hash": "Ro0PWrjhbvFwST+ewetqFQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.IntParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.IntParameterParser.html",
+          "hash": "zUFWQBRG4MidDdmpkOkRfg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParameterParser.html",
+          "hash": "yMPYAPsFWABMdZrCoI0beQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParsedResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParsedResult.html",
+          "hash": "/ObGMPbd/htzBFc/OoJuxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParserOutput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.ParserOutput.html",
+          "hash": "jrykT1Der+VFeAvr3Q3EKQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.StringParameterParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.StringParameterParser.html",
+          "hash": "tYdsMriG45WjOcAbgSfreg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParameterParsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParameterParsers.html",
+          "hash": "n3yR/OjRSs3pm9Tk6iHSKg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.ParsedArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.ParsedArgs.html",
+          "hash": "kNHciViDudTiRedEgbEbWA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.Parser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.Parser.html",
+          "hash": "50/5Fe1M8g+wnAQAaBH7XA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RichTea.CommandLineParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RichTea.CommandLineParser.html",
+          "hash": "Oy0AWn/3u2FTGG1mkT321Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "yHFxfRltZJddU1N91lAvag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "xGoamC/f6b6vJs0O0OB7hg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "XiRRXnwRc0uIAfU5w5xBxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "bhsO8tgILgKvtZ/nmUG8MQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "k+/dkjFuwAVS32HduMpmBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 2
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 22,
+          "skipped_file_count": 22
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

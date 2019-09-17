@@ -1,5 +1,8 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
 #addin "Cake.Incubator"
+#addin "Cake.DocFx"
+#tool "docfx.console"
+
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -46,6 +49,16 @@ Task("Test")
 {
     DotNetCoreTest("CommandLineParser.Tests/CommandLineParser.Tests.csproj");
 });
+
+Task("Docs").Does(() =>
+{
+    DocFxMetadata("./Docfx/docfx.json");
+    DocFxBuild("./Docfx/docfx.json");
+});
+
+Task("DocsServe")
+    .IsDependentOn("Docs")
+    .Does(() => DocFxServe("./docs"));
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
