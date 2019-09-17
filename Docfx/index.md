@@ -19,11 +19,11 @@ public static void ProgramState([ClArgs("resultDirectory", "rd")]string resultDi
 
 ```
 
-[Parser.ParseCommand](/api/RichTea.CommandLineParser.Parser.html) and invokes a command from the given args with simple error handling.
+[Parser.ParseCommand](~/api/RichTea.CommandLineParser.Parser.html) and invokes a command from the given args with simple error handling.
 
 The generic argument is an object that should have functions with command
-attribute ([ClCommandAttribute](/api/RichTea.CommandLineParser.ClArgsAttribute.html),
-[DefaultClCommand](/api/RichTea.CommandLineParser.DefaultClCommand.html)).
+attribute ([ClCommandAttribute](~/api/RichTea.CommandLineParser.ClArgsAttribute.html),
+[DefaultClCommand](~/api/RichTea.CommandLineParser.DefaultClCommand.html)).
 Functions should also be static and public.
 The annotation, along with ClArgs attributes determine how the function interacts with
 the function gets invoked. If a matching function can't be found a message
