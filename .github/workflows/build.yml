@@ -1,0 +1,51 @@
+name: Build
+
+on:
+  push:
+    branches:
+    - '*'
+  pull_request:
+    branches:
+    - '*'
+
+# runtime names from https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
+jobs:
+  ci-build:
+    strategy:
+      fail-fast: false
+      matrix:
+        cfg:
+        - name: Windows
+          os: windows-latest
+          target: windows
+          runtime: win-x64
+
+        - name: Linux
+          os: ubuntu-20.04
+          target: linux
+          runtime: linux-x64
+
+        - name: Mac
+          os: macos-10.15
+          target: mac
+          runtime: osx-x64
+
+
+    name: ${{ matrix.cfg.name }} ${{ github.ref }}
+    runs-on: ${{ matrix.cfg.os }}
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '2.1.x'
+    - name: Nuget Clear
+      run: dotnet nuget locals all --clear
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
