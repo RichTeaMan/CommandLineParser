@@ -179,6 +179,12 @@ namespace RichTea.CommandLineParser
                             {
                                 parameterValue = parameterParser.ParseParameter(alias, args[alias].ToArray());
                             }
+
+                            if (parameterValue.ErrorOutput?.Any() == true)
+                            {
+                                throw new ArgumentException($"Error while parsing parameter '{parameterInfo.Name}': {string.Join(", ", parameterValue.ErrorOutput.Select(e => e.Message))}");
+                            }
+
                             parsedResultList.Add(parameterValue);
                             foundValue = true;
                             break;
@@ -201,6 +207,12 @@ namespace RichTea.CommandLineParser
             if (parsedResultList.Count != ParameterInfos.Count())
             {
                 return null;
+            }
+
+            // print warnings and errors
+            foreach(var p in parsedResultList.Where(p => p.HasWarningOutput))
+            {
+                Console.WriteLine(p.CreateWarningMessage());
             }
 
             object[] methodParameters = parsedResultList.Select(r => r.Parameter).ToArray();

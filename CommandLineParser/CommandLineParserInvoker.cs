@@ -103,7 +103,10 @@ namespace RichTea.CommandLineParser
                     currentSwitch = splits.First().Substring(1).ToLower();
 
                     var switchArgs = splits.Skip(1).ToList();
-                    parsedArgs.Add(currentSwitch, switchArgs);
+                    if (!parsedArgs.ContainsKey(currentSwitch))
+                    {
+                        parsedArgs.Add(currentSwitch, switchArgs);
+                    }
                 }
                 else
                 {

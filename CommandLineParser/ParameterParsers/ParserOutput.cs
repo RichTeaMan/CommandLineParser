@@ -14,5 +14,10 @@ namespace RichTea.CommandLineParser.ParameterParsers
         {
             Message = message;
         }
+
+        public override string ToString()
+        {
+            return $"Parser output: '{Message}'";
+        }
     }
 }
