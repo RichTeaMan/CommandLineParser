@@ -52,6 +52,23 @@ namespace RichTea.CommandLineParser.Tests
             .AddParameter(nameof(b), b);
         }
 
+        [ClCommand("test-method-context")]
+        public static void TestMethodWithContext(
+            [ClArgs("a")]
+            int a,
+            [ClArgs("b")]
+            string b,
+            ParseContext parseContext
+)
+        {
+            methodInvocationInfo = new MethodInvocationInfo
+            {
+                MethodName = "test-method"
+            }.AddParameter(nameof(a), a)
+            .AddParameter(nameof(b), b)
+            .AddParameter(nameof(parseContext), parseContext.Args);
+        }
+
         [ClCommand("nullable-param-test-method")]
         public static void NullableParamTestMethod(
             [ClArgs("int-param", "ip")]
@@ -93,6 +110,30 @@ namespace RichTea.CommandLineParser.Tests
             }
             .AddParameter(nameof(a), a)
             .AddParameter(nameof(b), b);
+
+            Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
+        }
+
+        [TestMethod]
+        public void ContextInvocationParamsTest()
+        {
+            int a = 909;
+            string b = "testB";
+            string[] args = { "test-method-context", "-a", a.ToString(), "-b", b.ToString() };
+            ParseContext parseContext = new ParseContext(args, new ParsedArgs(), new Method[0]);
+
+            var invoker = new CommandLineParserInvoker();
+            var command = invoker.GetCommand(typeof(InvokerTest), args);
+            command.Invoke();
+
+            // expectation
+            var expectedMethodInvocationInfo = new MethodInvocationInfo
+            {
+                MethodName = "test-method"
+            }
+            .AddParameter(nameof(a), a)
+            .AddParameter(nameof(b), b)
+            .AddParameter(nameof(parseContext), parseContext.Args);
 
             Assert.AreEqual(expectedMethodInvocationInfo, methodInvocationInfo);
         }

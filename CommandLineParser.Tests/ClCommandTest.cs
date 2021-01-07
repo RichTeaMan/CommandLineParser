@@ -17,6 +17,14 @@ namespace RichTea.CommandLineParser.Tests
         )
         { }
 
+        public static void TestMethodWithoutAttr(
+            [ClArgs("int-param", "ip")]
+            int intParam = 20,
+            [ClArgs("string-param")]
+            string stringParam = "foo"
+ )
+        { }
+
         [ClCommand("nullable-param-test-method")]
         public static void NullableParamTestMethod(
             [ClArgs("int-param", "ip")]

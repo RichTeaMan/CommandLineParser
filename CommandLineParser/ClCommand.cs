@@ -21,6 +21,21 @@ namespace RichTea.CommandLineParser
         public string Name { get; private set; }
 
         /// <summary>
+        /// Gets a description for this function. This will be displayed in 'help' information.
+        /// </summary>
+        public string Description { get; private set; } = string.Empty;
+
+        /// <summary>
+        /// Constructs a ClCommandAttribute with the given name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        public ClCommandAttribute(string name, string description) : this(name)
+        {
+            Description = description;
+        }
+
+        /// <summary>
         /// Constructs a ClCommandAttribute with the given name.
         /// </summary>
         /// <param name="name"></param>

@@ -27,9 +27,25 @@ namespace RichTea.CommandLineParser
             return this;
         }
 
+        /*
+        public IEnumerable<MethodInfo> FetchClMethods(Type type)
+        {
+            foreach (var methodInfo in type.GetRuntimeMethods().Where(m => m.IsStatic))
+            {
+                var clCommandAttribute = methodInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(ClCommandAttribute)) as ClCommandAttribute;
+                if (!string.IsNullOrWhiteSpace(clCommandAttribute?.Name))
+                {
+                    Name = clCommandAttribute.Name;
+                }
+
+                var defaultClCommand = methodInfo.GetCustomAttributes().FirstOrDefault(a => a.GetType() == typeof(DefaultClCommand)) as DefaultClCommand;
+            }
+        }*/
+
         public MethodInvoker GetCommand(Type type, string[] args)
         {
             var pargs = ParseArgs(args);
+
             var allowedMethods = new List<Method>();
             foreach (var methodInfo in type.GetRuntimeMethods().Where(m => m.IsStatic))
             {
@@ -48,19 +64,29 @@ namespace RichTea.CommandLineParser
             {
                 throw new AmbiguousConfigurationException();
             }
+            ParseContext parseContext = new ParseContext(args, pargs, allowedMethods);
+            
+            if (pargs.Verb == "help")
+            {
+                Action<ParseContext> helpDelegate = HelpMethod.PrintHelp;
+                MethodInfo helpMethodInfo = helpDelegate.Method;
+
+                var helpMethod = new Method(helpMethodInfo, null, pargs.Verb, string.Empty, false);
+                return helpMethod.GetMethodInvoker(parseContext);
+            }
 
             MethodInvoker resultMethod = null;
 
             // check for default method
             if (string.IsNullOrEmpty(pargs.Verb) && allowedMethods.Any(m => m.IsDefault))
             {
-                resultMethod = allowedMethods.Single(m => m.IsDefault).GetMethodInvoker(pargs);
+                resultMethod = allowedMethods.Single(m => m.IsDefault).GetMethodInvoker(parseContext);
             }
             else
             {
                 foreach (var method in allowedMethods)
                 {
-                    var invoker = method.GetMethodInvoker(pargs);
+                    var invoker = method.GetMethodInvoker(parseContext);
                     if (invoker != null)
                     {
                         resultMethod = invoker;
