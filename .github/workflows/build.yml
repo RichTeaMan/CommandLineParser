@@ -8,31 +8,10 @@ on:
     branches:
     - '*'
 
-# runtime names from https://docs.microsoft.com/en-us/dotnet/core/rid-catalog
 jobs:
-  ci-build:
-    strategy:
-      fail-fast: false
-      matrix:
-        cfg:
-        - name: Windows
-          os: windows-latest
-          target: windows
-          runtime: win-x64
+  build:
 
-        - name: Linux
-          os: ubuntu-20.04
-          target: linux
-          runtime: linux-x64
-
-        - name: Mac
-          os: macos-10.15
-          target: mac
-          runtime: osx-x64
-
-
-    name: ${{ matrix.cfg.name }} ${{ github.ref }}
-    runs-on: ${{ matrix.cfg.os }}
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
       with:
@@ -49,7 +28,15 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - uses: actions/upload-artifact@v2
+    - name: Nuget Package Artifact
+      uses: actions/upload-artifact@v2
       with:
-        name: Nuget Package
         path: ${{ github.workspace }}/CommandLineParser/bin/Release/*.nupkg
+    - name: Generate Docs
+      uses: cake-build/cake-action@v1
+      with:
+        target: Docs
+    - name: Doc Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: ${{ github.workspace }}/CommandLineParser/docs/
