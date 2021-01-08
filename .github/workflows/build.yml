@@ -52,4 +52,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Nuget Package
-        path: ${{ github.workspace }}/CommandLineParser/CommandLineParser/bin/Release/*.nupkg
+        path: ${{ github.workspace }}/CommandLineParser/bin/Release/*.nupkg
