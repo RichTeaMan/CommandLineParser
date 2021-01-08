@@ -31,7 +31,7 @@ jobs:
     - name: Nuget Package Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: CommandLineParserNugetPackage-${GITHUB_SHA}
+        name: CommandLineParserNugetPackage-${{ GITHUB_SHA }}
         path: ${{ github.workspace }}/CommandLineParser/bin/Release/*.nupkg
     - name: Generate Docs
       uses: cake-build/cake-action@v1
@@ -40,5 +40,5 @@ jobs:
     - name: Doc Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: CommandLineParserDocs-${GITHUB_SHA}
+        name: CommandLineParserDocs-${{ GITHUB_SHA }}
         path: ${{ github.workspace }}/docs/
